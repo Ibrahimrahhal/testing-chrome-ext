@@ -36,7 +36,7 @@ export const Popup = () => {
     }, {});
   };
 
-  const groupedRecords = groupByDomain(records);
+  const groupedRecords = groupByDomain(records.slice(0, 5));
 
   return (
     <main>
@@ -59,7 +59,7 @@ export const Popup = () => {
               </tr>
             </thead>
             <tbody>
-              {Object.entries(groupedRecords).reverse().slice(0, 5).map(([domain, domainRecords]) => (
+              {Object.entries(groupedRecords).reverse().map(([domain, domainRecords]) => (
                 domainRecords.map((record: any, index: number) => (
                   <tr key={`${domain}-${index}`}>
                     <td style={{ border: '1px solid #ddd', padding: '8px' }}>{index + 1}</td>
